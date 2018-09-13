@@ -46,7 +46,7 @@ SpreeBraintreeVzero = {
   }
 }
 
-$(document).ready(function() {
+$(document).addEventListener("turbolinks:load", function() {
   paymentMethods = $('div[data-hook="checkout_payment_step"] input[type="radio"]').click(function (e) {
     SpreeBraintreeVzero.setSaveAndContinueVisibility();
   });
