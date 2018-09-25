@@ -4,7 +4,6 @@
     <img src="https://www.paypalobjects.com/en_US/i/btn/btn_xpressCheckout.gif" id="btnOpenFlow">
   </div>
 
-  <%= javascript_include_tag 'https://js.braintreegateway.com/v2/braintree.js', onload: 'braintreeLoaded()' %>
   <script src="https://js.braintreegateway.com/js/braintree-2.17.6.min.js"></script>
 
   <script type="text/javascript">
@@ -84,6 +83,8 @@
       document.querySelector('#btnOpenFlow').addEventListener('click', function () { checkout.paypal.initAuthFlow(); }, false);
     }
   </script>
+
+  <%= javascript_include_tag 'https://js.braintreegateway.com/v2/braintree.js', onload: 'braintreeLoaded()' %>
 <% else %>
   &nbsp;
 <% end %>
