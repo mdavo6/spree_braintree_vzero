@@ -60,7 +60,7 @@
 
 <script type="text/javascript">
   $('#payment_payment_method_id_<%= payment_method.id %>').click(function (e) {
-    console.log('Payment method!');
+
     var checkoutFormId = "new_payment";
 
     SpreeBraintreeVzero.advancedFraudTools = false;
@@ -81,7 +81,6 @@
     var checkout;
 
     braintree.setup(clientToken, '<%= payment_method_type %>', {
-      console.log('Braintree setup!');
       <%= render(partial: 'spree/shared/braintree_vzero/dropin', locals: { shipping_address: shipping_address, payment_method: payment_method }, formats: [:js]) if dropin %>
       <%= render(partial: 'spree/shared/braintree_vzero/hosted', locals: { payment_method: payment_method }, formats: [:js]) if hosted %>
     });
