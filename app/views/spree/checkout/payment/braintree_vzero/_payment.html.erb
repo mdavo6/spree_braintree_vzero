@@ -46,10 +46,14 @@
 <hr/>
 <br/>
 
+<%= javascript_include_tag 'https://js.braintreegateway.com/v2/braintree.js' %>
 <script src="https://js.braintreegateway.com/js/braintree-2.17.6.min.js"></script>
 
 <script type="text/javascript">
-  function braintreeLoaded() {
+    $("#checkout_form_payment").on('ajax:beforeSend', function() {
+      return false;
+    });
+
     $('#order_payments_attributes__payment_method_id_<%= payment_method.id %>').click(function (e) {
       var checkoutFormId = "<%= payment_method.preferred_checkout_form_id %>"
 
@@ -95,7 +99,4 @@
         );
       }
     });
-  }
 </script>
-
-<%= javascript_include_tag 'https://js.braintreegateway.com/v2/braintree.js', onload: 'braintreeLoaded()' %>
