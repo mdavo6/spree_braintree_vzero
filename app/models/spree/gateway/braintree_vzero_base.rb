@@ -74,6 +74,10 @@ module Spree
       result
     end
 
+    def cancel(transaction_id, _data)
+      void(transaction_id, _data)
+    end
+
     def credit(credit_cents, transaction_id, _options)
       Transaction.new(provider, transaction_id).refund(credit_cents.to_f / 100)
     end
