@@ -17,13 +17,18 @@ Gem::Specification.new do |s|
   s.homepage  = 'http://sparksolutions.co'
   s.license   = 'BSD-3'
 
-  #s.files       = `git ls-files`.split("\n")
-  #s.test_files  = `git ls-files -- {test,spec,features}/*`.split("\n")
+  s.files        = `git ls-files`.split("\n")
+  s.test_files   = `git ls-files -- spec/*`.split("\n")
   s.require_path = 'lib'
   s.requirements << 'none'
 
-  s.add_dependency 'spree_core', '~> 3.3.0'
+  spree_version = '>= 3.1.0'
+  s.add_dependency 'spree_core', spree_version
+  s.add_dependency 'spree_backend', spree_version
+  s.add_dependency 'spree_frontend', spree_version
+  s.add_dependency 'spree_extension'
   s.add_dependency 'braintree', '>= 2.40.0'
+  s.add_dependency 'deface', '~> 1.0'
   s.add_dependency 'whenever'
 
   s.add_development_dependency 'capybara', '~> 2.4'

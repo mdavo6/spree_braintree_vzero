@@ -1,10 +1,9 @@
 source 'https://rubygems.org'
-
-gem 'spree', '~> 3.3.0'
+gem 'spree', github: 'spree/spree', branch: 'master'
 
 # Provides basic authentication functionality for testing parts of your engine
 unless ENV['WITHOUT_SPREE_AUTH_DEVISE'] == 'true'
-  gem 'spree_auth_devise', '~> 3.3'
+  gem 'spree_auth_devise', github: 'spree/spree_auth_devise', branch: 'master'
 end
 
 gem 'pg'
